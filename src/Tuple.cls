@@ -16,8 +16,8 @@ Private items_() As Variant
 
 'Constructor
 '`Tuple.Create()` usage is not thread safe (but may be vba is single thread).
-Public Function Create(ByRef iItems() As Variant) As Tuple
-    If Not isInitialized Then Call VBA.Err().Raise(5)
+Public Function Create(ParamArray iItems() As Variant) As Tuple
+    If isInitialized Then Call VBA.Err().Raise(5)
     If Me Is Tuple Then Set Tuple = Nothing
     
     Let items_() = iItems()
